@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar color="danger">
+    <ion-title>首页</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <search-bar></search-bar>
+  <h1>{{title}}</h1>
+  <ion-list inset>
+    <button ion-item *ngFor="let hero of heroes" (click)="pushDetails(hero.id)">
+      <ion-badge item-left>{{hero.id}}</ion-badge>{{hero.name}}
+    </button> 
+  </ion-list>
+
+  <ion-list>
+    <ion-item>
+      <ion-label>新加入英雄:</ion-label>
+      <ion-input #newHeroName ></ion-input>
+    </ion-item>
+  </ion-list>
+  <button ion-button full  (click)="addHero(newHeroName.value); newHeroName.value=''">添加英雄</button>
+</ion-content>

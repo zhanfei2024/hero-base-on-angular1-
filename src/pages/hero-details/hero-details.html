@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-navbar color="danger">
+    <ion-title>英雄详情</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h2>{{selectedHero.name}} details!</h2>
+  <div><label>id: </label>{{selectedHero.id}}</div>
+  <div>
+      <label>name: </label>
+      <input [(ngModel)]="selectedHero.name" placeholder="name">
+  </div>
+</ion-content>
