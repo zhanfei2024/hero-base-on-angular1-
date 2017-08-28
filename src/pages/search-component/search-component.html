@@ -1,6 +1,21 @@
-<ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
-<ion-list>
-  <ion-item *ngFor="let hero of heroes">
-    {{ hero.name }}
-  </ion-item>
-</ion-list>
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-searchbar (ionInput)="getItems($event)" [showCancelButton]="shouldShowCancel" placeholder="请输入你要搜索的内容" color="primary"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list inset>
+    <button ion-item *ngFor="let hero of heroes" (click)="pushDetails(hero.id)">
+      <ion-badge item-left>{{hero.id}}</ion-badge>{{hero.name}}
+    </button> 
+  </ion-list>
+
+  <ion-list>
+    <ion-item>
+      <ion-label>新加入英雄:</ion-label>
+      <ion-input #newHeroName ></ion-input>
+    </ion-item>
+  </ion-list>
+  <button ion-button full  (click)="addHero(newHeroName.value); newHeroName.value=''">添加英雄</button>
+</ion-content>
